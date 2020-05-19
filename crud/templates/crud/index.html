@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+
+{% block titles %}
+
+    <title>{{heading}}</title>
+
+{% endblock titles %}
+
+
+{% block contents %}
+
+<div class="container">
+    <br>
+    <h1>SMARTPHONE TABLES</h1>
+    <br>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Model</th>
+            <th scope="col">Brand</th>
+            <th scope="col">Tahun Rilis</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Hapus</th>
+          </tr>
+        </thead>
+        <tbody>
+
+            {% for hape in smartphones %}
+                <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{hape.Nama}}</td>
+                    <td>{{hape.Brand}}</td>
+                    <td>{{hape.TahunRilis}}</td>
+                    <td><a class='btn btn-warning' href="{% url 'crud:update' hape.id %}">update</a>
+                    <td><a class='btn btn-danger' href="{% url 'crud:delete' hape.id%}">delete</a>
+                </tr>
+            {% endfor %}
+            
+
+        </tbody>
+    </table>
+    <a class='btn btn-primary' href="{% url 'crud:create' %}">Tambah</a>
+</div>
+    
+{% endblock contents %}
+    

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+{% block titles %}
+    <title>{{heading}}</title>
+{% endblock titles %}
+    
+
+{% block contents %}
+    
+    <div class="container">
+        <br>
+        <h2>Tambah Smartphone</h2>
+        <br>
+        <form method="POST">
+            {% csrf_token %}
+            <table>
+                {{form.as_table}}
+            </table>
+            <button class='btn btn-primary' type="submit">Submit</button>
+        </form>
+    </div>
+
+{% endblock contents %}
+    
