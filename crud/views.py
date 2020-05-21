@@ -12,7 +12,7 @@ def index(request):
 
     context = {
         'heading':'Crud Home',
-        'smartphones':smartphones
+        'smartphones':smartphones,
     }
 
     return render(request, 'crud/index.html', context)
@@ -69,8 +69,8 @@ def update(request, update_id):
 def logoutView(request):
 
     if request.method == 'POST':
-        
-        if request.POST['logout'] == 'Submit':
+
+        if request.POST['logout'] == 'Submit Query':
             logout(request)
             return redirect('login')
 

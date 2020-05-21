@@ -37,14 +37,13 @@
                     <td><a class='btn btn-danger' href="{% url 'crud:delete' hape.id%}">delete</a>
                 </tr>
             {% endfor %}
-            
+
 
         </tbody>
     </table>
     <a class='btn btn-primary' href="{% url 'crud:create' %}">Tambah</a>
     <a class='btn btn-danger' type="submit" href="{% url 'crud:logout' %}">Logout</a>
-    
+
 </div>
-    
+
 {% endblock contents %}
-    
