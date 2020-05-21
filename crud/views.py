@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth import logout
 
 from .models import smartphoneModel
 from .forms import smartphoneForm
@@ -64,3 +65,18 @@ def update(request, update_id):
     }
 
     return render(request, 'crud/create.html', context)
+
+def logoutView(request):
+
+    if request.method == 'POST':
+        
+        if request.POST['logout'] == 'Submit':
+            logout(request)
+            return redirect('login')
+
+    print(request.POST)
+    context = {
+
+    }
+
+    return render(request, 'crud/logout.html', context)

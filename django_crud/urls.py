@@ -5,6 +5,7 @@ from .import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^login/$', views.loginView, name='login'),
     url(r'^$', views.index, name='index'),
     url(r'^crud/', include('crud.urls', namespace='crud')),
 ]

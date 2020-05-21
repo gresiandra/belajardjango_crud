@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block titles %}
+    <title>{{heading}}</title>
+{% endblock titles %}
+
+
+{% block contents %}
+
+    <p>Apakah yakin akan logout?</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="submit" name="logout">
+    </form>    
+{% endblock contents %}
