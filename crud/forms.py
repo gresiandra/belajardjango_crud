@@ -10,3 +10,25 @@ class smartphoneForm(forms.ModelForm):
             'Brand',
             'TahunRilis',
         ]
+
+        widgets = {
+            'Nama' : forms.TextInput(
+                attrs = {
+                    'class':'form-control',
+                    'placeholder':'Nama Lengkap'
+                }
+            ),
+
+            'Brand' : forms.Select(
+                attrs = {
+                    'class':'form-control',
+                }
+            ),
+
+            'TahunRilis' : forms.NumberInput(
+                attrs = {
+                    'class':'form-control',
+                    'placeholder':'Tahun rilis'
+                }
+            )
+        }

@@ -15,7 +15,7 @@ class smartphoneModel(models.Model):
     )
     Brand = models.CharField(max_length=20, choices=vendor)
 
-    TahunRilis = models.CharField(max_length=4)
+    TahunRilis = models.IntegerField(max_length=4)
 
     def __str__(self):
         return "{}. {}".format(self.id, self.Nama)
