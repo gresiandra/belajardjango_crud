@@ -11,6 +11,10 @@ def index(request):
 
 def loginView(request):
 
+    context = {
+        'heading':'Halaman Login'
+    }
+
     if request.method == 'POST':
         print(request.POST)
         username = request.POST['username']
@@ -21,9 +25,9 @@ def loginView(request):
         if user is not None:
             login(request, user)
             return redirect('crud:index')
-
-    context = {
-        'heading':'Halaman Login'
-    }
-
-    return render(request, 'login.html', context)
+    
+    if request.method == 'GET':
+        if request.user.is_authenticated():
+            return redirect('crud:index')
+        else:
+            return render(request, 'login.html', context)

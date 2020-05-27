@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout
-
+from django.contrib.auth.decorators import login_required
 from .models import smartphoneModel
 from .forms import smartphoneForm
 
@@ -66,6 +66,7 @@ def update(request, update_id):
 
     return render(request, 'crud/create.html', context)
 
+@login_required
 def logoutView(request):
 
     if request.method == 'POST':
