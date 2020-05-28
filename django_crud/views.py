@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
+from .forms import loginForm
 
 def index(request):
 
@@ -12,10 +13,12 @@ def index(request):
 def loginView(request):
 
     context = {
-        'heading':'Halaman Login'
+        'heading':'Halaman Login',
+        'formLogin':loginForm
     }
 
     if request.method == 'POST':
+
         print(request.POST)
         username = request.POST['username']
         password = request.POST['password']
